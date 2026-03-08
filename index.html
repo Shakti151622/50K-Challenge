@@ -49,13 +49,13 @@ canvas{position:fixed;inset:0;pointer-events:none;z-index:9999}
 
 <!-- WELCOME SCREEN -->
 
-<div id="welcome-screen">
-  <div style="text-align:center;padding:40px 30px">
+<div id="welcome-screen" style="position:fixed;inset:0;z-index:20000;background:#0a0014;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 30px">
+  <div>
     <div style="font-size:72px;margin-bottom:16px">🔥</div>
-    <div style="font-size:13px;letter-spacing:4px;color:#7a5e9e;text-transform:uppercase;margin-bottom:8px">Welcome back</div>
-    <div style="font-size:32px;font-weight:900;background:linear-gradient(135deg,#FFD700,#FF8C00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px">Shakti Sharma</div>
-    <div id="welcome-quote" style="font-size:13px;color:#7a5e9e;font-style:italic;max-width:280px;margin:16px auto 28px;line-height:1.6"></div>
-    <button onclick="closeWelcome()" id="start-btn" style="background:linear-gradient(135deg,#B06EFF,#FF4D8D);border:none;border-radius:14px;color:#fff;padding:14px 36px;font-size:15px;font-weight:bold;box-shadow:0 4px 20px #B06EFF66;display:block;margin:0 auto">Let's Crush It 🔥</button>
+    <div style="font-size:13px;letter-spacing:4px;color:#7a5e9e;text-transform:uppercase;margin-bottom:10px">WELCOME BACK</div>
+    <div style="font-size:32px;font-weight:900;color:#FFD700;margin-bottom:10px">Shakti Sharma</div>
+    <div id="welcome-quote" style="font-size:13px;color:#9a7ebf;font-style:italic;max-width:280px;margin:0 auto 28px;line-height:1.6"></div>
+    <div onclick="closeWelcome()" style="display:inline-block;background:#B06EFF;border-radius:14px;color:#fff;padding:16px 44px;font-size:17px;font-weight:bold;font-family:Georgia,serif;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:manipulation">Let's Crush It 🔥</div>
   </div>
 </div>
 
