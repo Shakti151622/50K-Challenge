@@ -918,6 +918,7 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
   </div>
 </div>
 
+<div id="section-morning">
 <div class="slbl" style="margin-top:4px">Morning Rituals</div>
 
 <!-- MEDITATION -->
@@ -1055,6 +1056,9 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
   </div>
 </div>
 
+</div><!-- /section-morning -->
+
+<div id="section-trading">
 <div class="slbl" style="margin-top:4px">Trading Block</div>
 
 <!-- TRADING -->
@@ -1257,6 +1261,9 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
   </div>
 </div>
 
+</div><!-- /section-trading -->
+
+<div id="section-night">
 <div class="slbl" style="margin-top:4px">Night Rituals</div>
 
 <!-- NIGHT RITUALS -->
@@ -1301,6 +1308,9 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
   </div>
 </div>
 
+</div><!-- /section-night -->
+
+<div id="section-summary">
 <div class="slbl" style="margin-top:4px">Day Summary</div>
 
 <!-- SUMMARY CARD -->
@@ -1339,6 +1349,7 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
     </div>
   </div>
 </div>
+</div><!-- /section-summary -->
 
 <!-- LOGS PANEL (hidden by default) -->
 <div id="logsPanel" style="display:none;">
@@ -1408,6 +1419,72 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
     </div>
     <div style="margin-bottom:18px;">
       <button onclick="askClearAll()" style="width:100%;padding:9px;background:rgba(255,59,92,.05);border:1px solid rgba(255,59,92,.2);border-radius:6px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;cursor:pointer;letter-spacing:1px;">⚠️ Reset Everything (all days)</button>
+    </div>
+    <!-- Section Visibility -->
+    <div style="margin-bottom:18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);">👁 Show / Hide Sections</div>
+      <div style="display:flex;flex-direction:column;gap:8px;" id="sectionVisibilityList">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;">🌅</span>
+            <div>
+              <div style="font-family:'Bebas Neue',Impact,sans-serif;font-size:15px;letter-spacing:1px;color:var(--text);">Morning Rituals</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">Meditation · Physical · Affirmations · Podcast</div>
+            </div>
+          </div>
+          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
+            <input type="checkbox" id="vis-morning" checked style="opacity:0;width:0;height:0;position:absolute;">
+            <span onclick="toggleVisSwitch('morning')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-morning-track">
+              <span id="vis-morning-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
+            </span>
+          </label>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;">📊</span>
+            <div>
+              <div style="font-family:'Bebas Neue',Impact,sans-serif;font-size:15px;letter-spacing:1px;color:var(--text);">Trading Block</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">Trades · Pattern Study · Diploma</div>
+            </div>
+          </div>
+          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
+            <input type="checkbox" id="vis-trading" checked style="opacity:0;width:0;height:0;position:absolute;">
+            <span onclick="toggleVisSwitch('trading')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-trading-track">
+              <span id="vis-trading-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
+            </span>
+          </label>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;">🌙</span>
+            <div>
+              <div style="font-family:'Bebas Neue',Impact,sans-serif;font-size:15px;letter-spacing:1px;color:var(--text);">Night Rituals</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">5 habits · Reflect · Improve · Rest</div>
+            </div>
+          </div>
+          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
+            <input type="checkbox" id="vis-night" checked style="opacity:0;width:0;height:0;position:absolute;">
+            <span onclick="toggleVisSwitch('night')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-night-track">
+              <span id="vis-night-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
+            </span>
+          </label>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;">⚡</span>
+            <div>
+              <div style="font-family:'Bebas Neue',Impact,sans-serif;font-size:15px;letter-spacing:1px;color:var(--text);">Day Summary</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">Stats · P&amp;L · Overall review</div>
+            </div>
+          </div>
+          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
+            <input type="checkbox" id="vis-summary" checked style="opacity:0;width:0;height:0;position:absolute;">
+            <span onclick="toggleVisSwitch('summary')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-summary-track">
+              <span id="vis-summary-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
     <!-- Task editor -->
     <div style="margin-bottom:18px;">
@@ -2514,10 +2591,65 @@ function showSettings() {
   document.getElementById('set-name').value      = document.getElementById('brandName').textContent.trim();
   document.getElementById('set-target').value    = DAILY_TARGET;
   renderTaskEditor();
+  syncVisToggles();
 }
 
 function closeSettings() {
   document.getElementById('settingsModal').classList.remove('open');
+}
+
+// ── SECTION VISIBILITY ──────────────────────────────────────
+var SECTIONS = ['morning','trading','night','summary'];
+
+function loadBlockVisibility() {
+  try {
+    var saved = JSON.parse(lsGet('50k_section_vis') || '{}');
+    SECTIONS.forEach(function(s) {
+      var visible = (saved[s] !== undefined) ? saved[s] : true;
+      var el = document.getElementById('section-' + s);
+      if (el) el.style.display = visible ? '' : 'none';
+    });
+  } catch(e) {}
+}
+
+function saveBlockVisibility() {
+  var map = {};
+  SECTIONS.forEach(function(s) {
+    var chk = document.getElementById('vis-' + s);
+    map[s] = chk ? chk.checked : true;
+  });
+  lsSet('50k_section_vis', JSON.stringify(map));
+  SECTIONS.forEach(function(s) {
+    var el = document.getElementById('section-' + s);
+    if (el) el.style.display = map[s] ? '' : 'none';
+  });
+}
+
+function syncVisToggles() {
+  try {
+    var saved = JSON.parse(lsGet('50k_section_vis') || '{}');
+    SECTIONS.forEach(function(s) {
+      var visible = (saved[s] !== undefined) ? saved[s] : true;
+      var chk   = document.getElementById('vis-' + s);
+      var track = document.getElementById('vis-' + s + '-track');
+      var thumb = document.getElementById('vis-' + s + '-thumb');
+      if (chk) chk.checked = visible;
+      if (track) track.style.background = visible ? '#8B5CF6' : 'var(--gbar-bg)';
+      if (thumb) thumb.style.left = visible ? '21px' : '3px';
+      if (thumb) thumb.style.background = visible ? '#fff' : 'var(--muted)';
+    });
+  } catch(e) {}
+}
+
+function toggleVisSwitch(s) {
+  var chk   = document.getElementById('vis-' + s);
+  var track = document.getElementById('vis-' + s + '-track');
+  var thumb = document.getElementById('vis-' + s + '-thumb');
+  if (!chk) return;
+  chk.checked = !chk.checked;
+  var on = chk.checked;
+  if (track) track.style.background = on ? '#8B5CF6' : 'var(--gbar-bg)';
+  if (thumb) { thumb.style.left = on ? '21px' : '3px'; thumb.style.background = on ? '#fff' : 'var(--muted)'; }
 }
 
 function renderTaskEditor() {
@@ -3017,6 +3149,7 @@ function saveSettings() {
   var gl = document.getElementById('gridLabel'); if (gl) gl.textContent = daysVal + ' Day Progress';
   var ts = document.getElementById('totSub'); if (ts) ts.textContent = 'Challenge Target: '+daysVal+' × '+Math.floor(targetVal/60)+'h '+(targetVal%60)+'m';
 
+  saveBlockVisibility();
   closeSettings(); // close immediately for snappy feel
   setTimeout(function() {
     applyTaskConfig();
@@ -3086,6 +3219,7 @@ function showLogs() {
 function hideLogs() {
   document.getElementById('logsPanel').style.display = 'none';
   document.querySelectorAll('.main > *:not(#logsPanel)').forEach(function(el) { el.style.display = ''; });
+  loadBlockVisibility();
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
@@ -3282,6 +3416,7 @@ function downloadAll() {
 // ─────────────────────────────────────────────────────────────
 (function init() {
   loadSettings();
+  loadBlockVisibility();
   day = getTodayDay();
 
   // Auto theme based on time of day (6am-8pm = light, 8pm-6am = dark)
