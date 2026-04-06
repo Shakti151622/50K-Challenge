@@ -1423,7 +1423,7 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
     <!-- Section Visibility -->
     <div style="margin-bottom:18px;">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);">👁 Show / Hide Sections</div>
-      <div style="display:flex;flex-direction:column;gap:8px;" id="sectionVisibilityList">
+      <div style="display:flex;flex-direction:column;gap:8px;">
         <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
           <div style="display:flex;align-items:center;gap:10px;">
             <span style="font-size:18px;">🌅</span>
@@ -1432,12 +1432,9 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
               <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">Meditation · Physical · Affirmations · Podcast</div>
             </div>
           </div>
-          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
-            <input type="checkbox" id="vis-morning" checked style="opacity:0;width:0;height:0;position:absolute;">
-            <span onclick="toggleVisSwitch('morning')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-morning-track">
-              <span id="vis-morning-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
-            </span>
-          </label>
+          <div id="vis-morning" data-on="1" onclick="toggleVis('morning')" style="position:relative;width:42px;height:24px;border-radius:24px;cursor:pointer;transition:background .3s;flex-shrink:0;">
+            <div style="position:absolute;height:18px;width:18px;top:3px;border-radius:50%;transition:left .3s;" id="vis-morning-thumb"></div>
+          </div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
           <div style="display:flex;align-items:center;gap:10px;">
@@ -1447,12 +1444,9 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
               <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">Trades · Pattern Study · Diploma</div>
             </div>
           </div>
-          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
-            <input type="checkbox" id="vis-trading" checked style="opacity:0;width:0;height:0;position:absolute;">
-            <span onclick="toggleVisSwitch('trading')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-trading-track">
-              <span id="vis-trading-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
-            </span>
-          </label>
+          <div id="vis-trading" data-on="1" onclick="toggleVis('trading')" style="position:relative;width:42px;height:24px;border-radius:24px;cursor:pointer;transition:background .3s;flex-shrink:0;">
+            <div style="position:absolute;height:18px;width:18px;top:3px;border-radius:50%;transition:left .3s;" id="vis-trading-thumb"></div>
+          </div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
           <div style="display:flex;align-items:center;gap:10px;">
@@ -1462,12 +1456,9 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
               <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">5 habits · Reflect · Improve · Rest</div>
             </div>
           </div>
-          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
-            <input type="checkbox" id="vis-night" checked style="opacity:0;width:0;height:0;position:absolute;">
-            <span onclick="toggleVisSwitch('night')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-night-track">
-              <span id="vis-night-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
-            </span>
-          </label>
+          <div id="vis-night" data-on="1" onclick="toggleVis('night')" style="position:relative;width:42px;height:24px;border-radius:24px;cursor:pointer;transition:background .3s;flex-shrink:0;">
+            <div style="position:absolute;height:18px;width:18px;top:3px;border-radius:50%;transition:left .3s;" id="vis-night-thumb"></div>
+          </div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--rc-bg);border:1px solid var(--border);border-radius:8px;">
           <div style="display:flex;align-items:center;gap:10px;">
@@ -1477,12 +1468,9 @@ body.day-mode .totbox { background:#F0F4FA; border-color:rgba(200,122,0,.3); }
               <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);">Stats · P&amp;L · Overall review</div>
             </div>
           </div>
-          <label style="position:relative;display:inline-block;width:42px;height:24px;flex-shrink:0;margin:0;">
-            <input type="checkbox" id="vis-summary" checked style="opacity:0;width:0;height:0;position:absolute;">
-            <span onclick="toggleVisSwitch('summary')" style="position:absolute;cursor:pointer;inset:0;border-radius:24px;background:var(--gbar-bg);transition:.3s;" id="vis-summary-track">
-              <span id="vis-summary-thumb" style="position:absolute;height:18px;width:18px;left:3px;bottom:3px;border-radius:50%;background:var(--muted);transition:.3s;"></span>
-            </span>
-          </label>
+          <div id="vis-summary" data-on="1" onclick="toggleVis('summary')" style="position:relative;width:42px;height:24px;border-radius:24px;cursor:pointer;transition:background .3s;flex-shrink:0;">
+            <div style="position:absolute;height:18px;width:18px;top:3px;border-radius:50%;transition:left .3s;" id="vis-summary-thumb"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -2601,6 +2589,35 @@ function closeSettings() {
 // ── SECTION VISIBILITY ──────────────────────────────────────
 var SECTIONS = ['morning','trading','night','summary'];
 
+function _visPaint(s, on) {
+  var track = document.getElementById('vis-' + s);
+  var thumb = document.getElementById('vis-' + s + '-thumb');
+  if (track) {
+    track.style.background = on ? '#8B5CF6' : '#3A5070';
+    track.setAttribute('data-on', on ? '1' : '0');
+  }
+  if (thumb) {
+    thumb.style.left  = on ? '21px' : '3px';
+    thumb.style.background = on ? '#ffffff' : '#7A8FA8';
+  }
+}
+
+function toggleVis(s) {
+  var track = document.getElementById('vis-' + s);
+  if (!track) return;
+  var nowOn = track.getAttribute('data-on') === '1';
+  var newOn = !nowOn;
+  _visPaint(s, newOn);
+  // Save immediately so tapping the toggle persists even without hitting SAVE
+  var saved = {};
+  try { saved = JSON.parse(lsGet('50k_section_vis') || '{}'); } catch(e) {}
+  saved[s] = newOn;
+  lsSet('50k_section_vis', JSON.stringify(saved));
+  // Apply to page immediately
+  var el = document.getElementById('section-' + s);
+  if (el) el.style.display = newOn ? '' : 'none';
+}
+
 function loadBlockVisibility() {
   try {
     var saved = JSON.parse(lsGet('50k_section_vis') || '{}');
@@ -2613,10 +2630,11 @@ function loadBlockVisibility() {
 }
 
 function saveBlockVisibility() {
+  // Reads current toggle states and persists + applies them
   var map = {};
   SECTIONS.forEach(function(s) {
-    var chk = document.getElementById('vis-' + s);
-    map[s] = chk ? chk.checked : true;
+    var track = document.getElementById('vis-' + s);
+    map[s] = track ? (track.getAttribute('data-on') === '1') : true;
   });
   lsSet('50k_section_vis', JSON.stringify(map));
   SECTIONS.forEach(function(s) {
@@ -2630,27 +2648,12 @@ function syncVisToggles() {
     var saved = JSON.parse(lsGet('50k_section_vis') || '{}');
     SECTIONS.forEach(function(s) {
       var visible = (saved[s] !== undefined) ? saved[s] : true;
-      var chk   = document.getElementById('vis-' + s);
-      var track = document.getElementById('vis-' + s + '-track');
-      var thumb = document.getElementById('vis-' + s + '-thumb');
-      if (chk) chk.checked = visible;
-      if (track) track.style.background = visible ? '#8B5CF6' : 'var(--gbar-bg)';
-      if (thumb) thumb.style.left = visible ? '21px' : '3px';
-      if (thumb) thumb.style.background = visible ? '#fff' : 'var(--muted)';
+      _visPaint(s, visible);
     });
   } catch(e) {}
 }
 
-function toggleVisSwitch(s) {
-  var chk   = document.getElementById('vis-' + s);
-  var track = document.getElementById('vis-' + s + '-track');
-  var thumb = document.getElementById('vis-' + s + '-thumb');
-  if (!chk) return;
-  chk.checked = !chk.checked;
-  var on = chk.checked;
-  if (track) track.style.background = on ? '#8B5CF6' : 'var(--gbar-bg)';
-  if (thumb) { thumb.style.left = on ? '21px' : '3px'; thumb.style.background = on ? '#fff' : 'var(--muted)'; }
-}
+function toggleVisSwitch(s) { toggleVis(s); } // legacy alias
 
 function renderTaskEditor() {
   var list = document.getElementById('taskEditorList');
